@@ -91,7 +91,7 @@ funções prontas como Math.max(). */
 
 //sor, usei array de objetos para poder ter mais de um vencedor no caso de empatar
 
-
+/* 
 
 const prompt = require('prompt-sync')();
 
@@ -148,7 +148,7 @@ if (isNaN(n1) || isNaN(n2) || isNaN(n3) || !Number.isInteger(n1) || !Number.isIn
     });
 }
 
-
+*/
 
 
 // ---------- EXERCÍCIO 5 -----------
@@ -319,7 +319,7 @@ if(!(erro)){
 //pergunte ao usuário se o ano é bissexto e ajuste a quantidade de dias para 29
 //caso seja.
 
-
+/* 
 
 const prompt = require('prompt-sync')();
 
@@ -387,7 +387,7 @@ if(!(erro)){
     console.error('Algum erro ocorreu durante o processo!');
 }
 
-
+*/
 
 // ---------- EXERCÍCIO 10 -----------
 
@@ -396,6 +396,8 @@ if(!(erro)){
 //intervalos, calcule o valor a pagar conforme a tabela: 1a hora = R$ 8,00; 2a hora =
 //R$ 6,00; 3a hora = R$ 4,00; acima de 3 horas = R$ 4,00 pelas primeiras 3 horas mais
 //R$ 2,00 por hora adicional. Exiba o tempo total e o valor cobrado.
+
+/* 
 
 const prompt = require('prompt-sync')();
 
@@ -420,3 +422,4 @@ switch(true){
     console.log(`O valor final foi de R$${valor}`);
 }
     
+*/
