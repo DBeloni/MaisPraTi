@@ -156,49 +156,175 @@ if (inv[escolha] !== undefined) {
 //planejado e valor gasto. Use for...in para percorrer as categorias e exibir se cada
 //uma ficou dentro ou acima do orçamento, e calcule o saldo geral do mês.
 
-/* 
+/*  
 
 const orcamento = {
-    alimentacao: { planejado: 1500, gasto: 1400 },
-    transporte: { planejado: 250, gasto: 300 },
-    lazer: { planejado: 500, gasto: 450 },
-    saude: { planejado: 3000, gasto: 3200 }
-};
+    alimentacao: {planejado: 1500, gasto: 1400},
+    transporte: {planejado: 250, gasto: 300},
+    lazer: {planejado: 500, gasto: 450},
+    saude: {planejado: 3000, gasto: 3200}
+}
 
-let totalPlanejado = 0, totalGasto = 0;
+let tPlnj = 0, tGst = 0;
 
-console.log("Relatório do Mês");
+console.log("Relatório do Mês\n");
 
-for (let chave in orcamento) {
-    let planejado = orcamento[chave].planejado, gasto = orcamento[chave].gasto;
+for(let prop in orcamento){
+    let plnj = orcamento[prop].planejado, gst = orcamento[prop].gasto;
 
-    totalPlanejado = totalPlanejado + planejado;
-    totalGasto = totalGasto + gasto;
+    tPlnj += plnj;
+    tGst += gst;
 
-    if (gasto > planejado) {
-        let passou = gasto - planejado;
-        console.log(` ${chave} : Ficou acima do orçamento por R$${passou}`);
-    }     else if (gasto < planejado) {
-        let sobrou = planejado - gasto;
-        console.log(`${chave} : Ficou dentro do orçamento e sobrou R$${sobrou}`);
+    if(gst > plnj){
+        console.log(`${prop}: Ficou negativo no orçamento por R$${gst - plnj}`);
+    }else if(gst < plnj){
+        console.log(`${prop}: Ficou positivo no orçamento por R$${plnj - gst}`);
     } 
-    else {
-        console.log(`${chave}: Gastou exatamente o planejado`);
+    else{
+        console.log(`${prop}: Gastou exatamente o planejado`); 
     }
 }
 
-let saldoGeral = totalPlanejado - totalGasto;
+let saldo = tPlnj - tGst;
 
-console.log("Total que planejava gastar: R$" + totalPlanejado);
-console.log("Total que realmente gastou: R$" + totalGasto);
+console.log("Total que planejava gastar: R$" + tPlnj);
+console.log("Total que realmente gastou: R$" + tGst);
 
-if (saldoGeral > 0) {
-    console.log("Saldo: R$" + saldoGeral);
-} else if (saldoGeral < 0) {
-    let prejuizo = totalGasto - totalPlanejado; 
-    console.log("sando final : -R$" + prejuizo);
-} else {
+if(saldo > 0){
+    console.log(`Saldo: R$${saldo.toFixed(2)}`);
+}else if(saldo < 0){ 
+    console.log(`Saldo: -R$${(saldo * -1).toFixed(2)}`);
+}else{
     console.log("Gastou tudo");
+}
+
+*/
+
+// ---------- EXERCÍCIO 6 -----------
+//Crie um array de objetos representando músicas, cada uma com título, artista e
+//duração em segundos. Use for...of para exibir cada música no formato "Artista —
+//Título (mm:ss)". Ao final, use forEach para somar a duração total e exiba-a no
+//mesmo formato.
+
+/* 
+
+const playlist = [
+    {titulo: "that's my life", artista: "Allison Eide", duracao: 218},
+    {titulo: "Build", artista: "Gabe von Oven", duracao: 164},
+    {titulo: "for the King", artista: "Allison Eide", duracao: 198},
+    {titulo: "one of those nights", artista: "DWLLRS", duracao: 191},
+    {titulo: "Finally Free", artista: "ELEVATION RHYTHM", duracao: 116}
+]
+
+let segTotal = 0;
+
+for(let prop of playlist){
+    console.log(`${prop.artista} - ${prop.titulo} (${Math.floor(prop.duracao/60)}:${prop.duracao % 60})`);
+}
+
+playlist.forEach(prop => {
+    segTotal += prop.duracao;
+})
+
+console.log(`O tempo da playlist: ${Math.floor(segTotal/60)}:${segTotal % 60}`);
+
+*/
+
+// ---------- EXERCÍCIO 7 -----------
+//Crie um array de objetos com nome e nota de 6 alunos. Use for...of para classificar
+//cada aluno (Aprovado, Recuperação ou Reprovado) e exibir o resultado. Use
+//forEach para calcular e exibir separadamente a média dos aprovados e a média
+//dos reprovados.
+
+/* 
+
+const alunos = [
+    {nome: 'Jaques', nota: 10},
+    {nome: 'Hyago', nota: 9},
+    {nome: 'de Oliveira', nota: 5.5},
+    {nome: 'Antunes', nota: 6.5},
+    {nome: 'Codifica Edu', nota: 8.5},
+    {nome: 'Aluninho do Fundão', nota: 2},
+]
+
+let mdA=0, mdR=0, cA=0, cR=0;
+
+for(let prop of alunos){
+    if(prop.nota >= 7){
+        console.log(`O aluno ${prop.nome} foi aprovado com nota: ${prop.nota}`);
+        mdA += prop.nota;
+        cA++
+    }else if(prop.nota >= 4){
+        console.log(`O aluno ${prop.nome} foi para a recuperação com nota: ${prop.nota}`);
+
+    }else{
+        console.log(`O aluno ${prop.nome} foi reprovado com nota: ${prop.nota}`);
+        mdR += prop.nota;
+        cR++
+    }
+}
+
+console.log(`A média dos aprovados foi: ${(mdA/cA).toFixed(2)} e a dos reprovados foi: ${(mdR/cR).toFixed(2)}`);
+
+*/
+
+// ---------- EXERCÍCIO 8 -----------
+//Crie um array de objetos representando produtos com nome, preço e quantidade.
+//Use forEach para calcular o valor total em estoque de cada produto (preço ×
+//quantidade) e exibir um relatório. Ao final, exiba o valor total geral de todo o
+//estoque.
+
+/* 
+
+const produtos = [
+    {nome: 'bombril', preco: 8, quantidade: 5},
+    {nome: 'leite', preco: 6, quantidade: 12},
+    {nome: 'ovos', preco: 17, quantidade: 10},
+]
+
+let total=0;
+
+produtos.forEach(valor => {
+    total += valor.preco * valor.quantidade;
+    console.log(`O valor total em estoque do produto ${valor.nome} é R$${valor.preco * valor.quantidade}`);
+})
+
+console.log(`Relatório de valor total: R$${total}`);
+
+*/
+
+// ---------- EXERCÍCIO 9 -----------
+//Crie um array de objetos onde cada objeto representa um contato com nome,
+//telefone e e-mail. Use forEach para listar todos os contatos formatados. Permita
+//buscar um contato pelo nome usando for...of e exiba os dados encontrados ou
+//uma mensagem de "não encontrado".
+
+/* 
+
+const prompt = require('prompt-sync')();
+
+const contato = [
+    {nome: 'Jaques', telefone: 5196478283, email: 'jaquesantunes@gmail.com'},
+    {nome: 'Hyago', telefone: 5596478283, email: 'jhyago@gmail.com'},
+    {nome: 'Codifica Edu', telefone: 555196478283, email: 'edu@codifica.com'}
+]
+
+contato.forEach(valor => {
+    console.log(`Contato: Nome: ${valor.nome}, telefone: ${valor.telefone}, email: ${valor.email}`);
+})
+
+let teste = prompt('Digite um nome para buscar nos contatos: '), achou = false;
+
+for(let valor of contato){
+    if(teste === valor.nome){
+        achou = true;
+        console.log(`Contato: Nome: ${valor.nome}, telefone: ${valor.telefone}, email: ${valor.email}`);
+        break;
+    }
+}
+
+if(!(achou)){
+    console.log("não encontrado");
 }
 
 */
