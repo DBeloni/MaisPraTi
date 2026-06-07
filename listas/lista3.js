@@ -328,3 +328,162 @@ if(!(achou)){
 }
 
 */
+
+// ---------- EXERCÍCIO 10 -----------
+//Implemente uma pilha usando um array para simular o histórico de um
+//navegador. Crie as funções visitar(pagina) (push), voltar() (pop) e paginaAtual()
+//(peek). Simule uma sessão: visite 4 páginas, volte 2 vezes e exiba a página atual a
+//cada operação.
+
+/*
+
+let historico = []; // Não precisamos mais do cont = 0
+
+function visitar(pag){
+    historico.push(pag);
+    console.log(`Página visitada! `);
+    paginaAtual();
+}
+
+function voltar(){
+    if (historico.length > 1){
+        historico.pop();
+        console.log(`Página removida! `);
+        paginaAtual();
+    }
+    else{
+        historico.pop();
+        console.log("Histórico vazio!");
+    }
+}
+
+function paginaAtual(){
+    if(historico.length > 0){
+        console.log(`Página Atual: ${historico.length - 1}\n`);
+    }
+    else{
+        console.log("O histórico está vazio!\n");
+    }
+}
+
+visitar("google.com");
+visitar("github.com");
+visitar("minecraft.com");
+visitar("youtube.com");
+
+voltar();
+voltar();
+
+*/
+
+// ---------- EXERCÍCIO 11 -----------
+//Implemente uma fila usando um array para simular o atendimento de uma
+//clínica. Crie as funções chegarPaciente(nome) (enqueue), chamarProximo()
+//(dequeue) e exibirFila(). Simule a chegada de 5 pacientes e o atendimento de 3,
+//exibindo o estado da fila a cada operação.
+
+/* 
+
+let fila = [];
+
+function chegarPaciente(nome){
+    fila.push(nome);
+    console.log(`Paciente adicionado: ${nome}`);
+    exibirFila();
+}
+
+function chamarProximo(){
+    if(fila.length > 0){ 
+        console.log(`Atendido: ${fila.shift()}`);
+        exibirFila();
+    }else{
+        console.log("Fila vazia!");
+    }
+}
+
+function exibirFila(){
+    if(fila.length > 0){
+        console.log(`Fila atual: ${fila.join()}\n`);
+    }else{
+        console.log("Fila atual: vazio\n");
+    }
+}
+
+chegarPaciente("Jaques");
+chegarPaciente("Hyago");
+chegarPaciente("de Oliveira");
+chegarPaciente("Antunes");
+chegarPaciente("Codifica Edu");
+
+chamarProximo();
+chamarProximo();
+chamarProximo();
+
+*/
+
+// ---------- EXERCÍCIO 12 -----------
+//Implemente uma lista ligada simples usando nós ({ valor, proximo }). Crie as
+//funções adicionar(tarefa), remover(tarefa) e exibir() que percorre todos os nós.
+//Simule um gerenciador de tarefas: adicione 4 tarefas, remova uma pelo nome e
+//exiba a lista antes e depois.
+// A nossa lista começa apontando para o vazio (null)
+
+/* 
+
+let head = null;
+
+function adicionar(tarefa) {
+    let novoNo = {valor: tarefa, proximo: null};
+
+    if(head === null){
+        head = novoNo;
+    }else{
+        let atual = head;
+        while(atual.proximo !== null){
+            atual = atual.proximo;
+        }
+        atual.proximo = novoNo;
+    }
+    console.log(`Adicionado: ${tarefa}`);
+}
+
+function remover(tarefa) {
+    if(head === null) return;
+    if(head.valor === tarefa){
+        head = head.proximo;
+        console.log(`Removido: ${tarefa}`);
+        return;
+    }
+    let atual = head;
+    while(atual.proximo !== null && atual.proximo.valor !== tarefa){
+        atual = atual.proximo;
+    }
+    if(atual.proximo !== null){
+        atual.proximo = atual.proximo.proximo;
+        console.log(`Removido: ${tarefa}`);
+    }
+}
+
+function exibir(){
+    let atual = head, resultado = "";
+    
+    while(atual !== null){
+        resultado += atual.valor + ", ";
+        atual = atual.proximo;
+    }
+    
+    console.log(resultado + "null");
+}
+
+adicionar("Ir para a padaria");
+adicionar("Comprar pão, frios e manteiga");
+adicionar("Fazer um sanduíche");
+adicionar("Comer o sanduíche");
+
+exibir();
+
+remover("Ir para a padaria");
+
+exibir();
+
+*/
