@@ -12,6 +12,7 @@ O projeto está dividido em arquivos JavaScript práticos:
 
 * **`lista1.js`**: Contém a resolução dos primeiros exercícios de lógica.
 * **`lista2.js`**: Contém a resolução dos exercícios da segunda etapa.
+* **`lista3.js`**: Contém a resolução dos últimos exercícios de JS.
 
 ## 🛠️ Tecnologias Utilizadas
 
